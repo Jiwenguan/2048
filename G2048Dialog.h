@@ -10,6 +10,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <QMessageBox>
+#include <movethread.h>
 namespace Ui {
 class G2048Dialog;
 }

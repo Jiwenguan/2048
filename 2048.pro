@@ -13,9 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        G2048Dialog.cpp
+        G2048Dialog.cpp \
+    movethread.cpp
 
-HEADERS  += G2048Dialog.h
+HEADERS  += G2048Dialog.h \
+    movethread.h
 
 FORMS    += G2048Dialog.ui
 

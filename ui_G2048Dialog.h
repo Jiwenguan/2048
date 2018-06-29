@@ -15,66 +15,60 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_G2048Dialog
 {
 public:
-    QHBoxLayout *horizontalLayout;
+    QLabel *label_am;
+    QWidget *widget;
     QGridLayout *gridLayout;
-    QLabel *label_30;
+    QLabel *label_11;
+    QLabel *label_10;
     QLabel *label_24;
+    QLabel *label_30;
     QLabel *label_53;
     QLabel *label_25;
-    QLabel *label_23;
     QLabel *label_42;
+    QLabel *label_23;
     QLabel *label_43;
     QLabel *label_44;
     QLabel *label_21;
     QLabel *label_40;
     QLabel *label_54;
-    QLabel *label_52;
     QLabel *label_51;
-    QLabel *label_45;
     QLabel *label_50;
-    QLabel *label_34;
-    QLabel *label_41;
+    QLabel *label_45;
+    QLabel *label_52;
     QLabel *label_55;
+    QLabel *label_41;
+    QLabel *label_34;
     QLabel *label_35;
-    QLabel *label_33;
     QLabel *label_32;
     QLabel *label_31;
     QLabel *label_01;
-    QLabel *label_02;
-    QLabel *label_03;
-    QLabel *label_04;
+    QLabel *label_33;
     QLabel *label_05;
-    QLabel *label_10;
-    QLabel *label_11;
-    QLabel *label_12;
+    QLabel *label_04;
+    QLabel *label_03;
+    QLabel *label_02;
     QLabel *label_13;
     QLabel *label_14;
     QLabel *label_15;
-    QLabel *label_20;
-    QLabel *label_22;
+    QLabel *label_12;
     QLabel *label_00;
-    QVBoxLayout *verticalLayout;
-    QSpacerItem *verticalSpacer_3;
-    QLabel *label_99;
+    QLabel *label_22;
+    QLabel *label_20;
     QLabel *scorelabel;
-    QSpacerItem *verticalSpacer_2;
+    QLabel *label_99;
     QLabel *label_39;
-    QSpacerItem *verticalSpacer;
-    QPushButton *startButton;
     QPushButton *exitButton;
-    QSpacerItem *verticalSpacer_4;
+    QPushButton *startButton;
 
     void setupUi(QDialog *G2048Dialog)
     {
@@ -157,18 +151,22 @@ public:
         font.setItalic(true);
         G2048Dialog->setFont(font);
         G2048Dialog->setFocusPolicy(Qt::NoFocus);
-        horizontalLayout = new QHBoxLayout(G2048Dialog);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        gridLayout = new QGridLayout();
+        label_am = new QLabel(G2048Dialog);
+        label_am->setObjectName(QStringLiteral("label_am"));
+        label_am->setGeometry(QRect(536, 10, 109, 28));
+        widget = new QWidget(G2048Dialog);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(9, 9, 521, 541));
+        gridLayout = new QGridLayout(widget);
         gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setVerticalSpacing(10);
-        label_30 = new QLabel(G2048Dialog);
-        label_30->setObjectName(QStringLiteral("label_30"));
-        sizePolicy.setHeightForWidth(label_30->sizePolicy().hasHeightForWidth());
-        label_30->setSizePolicy(sizePolicy);
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        label_11 = new QLabel(widget);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        sizePolicy.setHeightForWidth(label_11->sizePolicy().hasHeightForWidth());
+        label_11->setSizePolicy(sizePolicy);
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush);
         QBrush brush9(QColor(205, 193, 180, 255));
@@ -223,24 +221,24 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_30->setPalette(palette1);
+        label_11->setPalette(palette1);
         QFont font1;
         font1.setFamily(QStringLiteral("Calibri"));
         font1.setPointSize(14);
         font1.setBold(false);
         font1.setItalic(false);
         font1.setWeight(50);
-        label_30->setFont(font1);
-        label_30->setAutoFillBackground(true);
-        label_30->setTextFormat(Qt::RichText);
-        label_30->setAlignment(Qt::AlignCenter);
+        label_11->setFont(font1);
+        label_11->setAutoFillBackground(true);
+        label_11->setTextFormat(Qt::RichText);
+        label_11->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_30, 3, 0, 1, 1);
+        gridLayout->addWidget(label_11, 1, 1, 1, 1);
 
-        label_24 = new QLabel(G2048Dialog);
-        label_24->setObjectName(QStringLiteral("label_24"));
-        sizePolicy.setHeightForWidth(label_24->sizePolicy().hasHeightForWidth());
-        label_24->setSizePolicy(sizePolicy);
+        label_10 = new QLabel(widget);
+        label_10->setObjectName(QStringLiteral("label_10"));
+        sizePolicy.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
+        label_10->setSizePolicy(sizePolicy);
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette2.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -287,18 +285,18 @@ public:
         palette2.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette2.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette2.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_24->setPalette(palette2);
-        label_24->setFont(font1);
-        label_24->setAutoFillBackground(true);
-        label_24->setTextFormat(Qt::RichText);
-        label_24->setAlignment(Qt::AlignCenter);
+        label_10->setPalette(palette2);
+        label_10->setFont(font1);
+        label_10->setAutoFillBackground(true);
+        label_10->setTextFormat(Qt::RichText);
+        label_10->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_24, 2, 4, 1, 1);
+        gridLayout->addWidget(label_10, 1, 0, 1, 1);
 
-        label_53 = new QLabel(G2048Dialog);
-        label_53->setObjectName(QStringLiteral("label_53"));
-        sizePolicy.setHeightForWidth(label_53->sizePolicy().hasHeightForWidth());
-        label_53->setSizePolicy(sizePolicy);
+        label_24 = new QLabel(widget);
+        label_24->setObjectName(QStringLiteral("label_24"));
+        sizePolicy.setHeightForWidth(label_24->sizePolicy().hasHeightForWidth());
+        label_24->setSizePolicy(sizePolicy);
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -345,18 +343,18 @@ public:
         palette3.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette3.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette3.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_53->setPalette(palette3);
-        label_53->setFont(font1);
-        label_53->setAutoFillBackground(true);
-        label_53->setTextFormat(Qt::RichText);
-        label_53->setAlignment(Qt::AlignCenter);
+        label_24->setPalette(palette3);
+        label_24->setFont(font1);
+        label_24->setAutoFillBackground(true);
+        label_24->setTextFormat(Qt::RichText);
+        label_24->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_53, 5, 3, 1, 1);
+        gridLayout->addWidget(label_24, 2, 4, 1, 1);
 
-        label_25 = new QLabel(G2048Dialog);
-        label_25->setObjectName(QStringLiteral("label_25"));
-        sizePolicy.setHeightForWidth(label_25->sizePolicy().hasHeightForWidth());
-        label_25->setSizePolicy(sizePolicy);
+        label_30 = new QLabel(widget);
+        label_30->setObjectName(QStringLiteral("label_30"));
+        sizePolicy.setHeightForWidth(label_30->sizePolicy().hasHeightForWidth());
+        label_30->setSizePolicy(sizePolicy);
         QPalette palette4;
         palette4.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette4.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -403,18 +401,18 @@ public:
         palette4.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette4.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette4.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_25->setPalette(palette4);
-        label_25->setFont(font1);
-        label_25->setAutoFillBackground(true);
-        label_25->setTextFormat(Qt::RichText);
-        label_25->setAlignment(Qt::AlignCenter);
+        label_30->setPalette(palette4);
+        label_30->setFont(font1);
+        label_30->setAutoFillBackground(true);
+        label_30->setTextFormat(Qt::RichText);
+        label_30->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_25, 2, 5, 1, 1);
+        gridLayout->addWidget(label_30, 3, 0, 1, 1);
 
-        label_23 = new QLabel(G2048Dialog);
-        label_23->setObjectName(QStringLiteral("label_23"));
-        sizePolicy.setHeightForWidth(label_23->sizePolicy().hasHeightForWidth());
-        label_23->setSizePolicy(sizePolicy);
+        label_53 = new QLabel(widget);
+        label_53->setObjectName(QStringLiteral("label_53"));
+        sizePolicy.setHeightForWidth(label_53->sizePolicy().hasHeightForWidth());
+        label_53->setSizePolicy(sizePolicy);
         QPalette palette5;
         palette5.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette5.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -461,18 +459,18 @@ public:
         palette5.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette5.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette5.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_23->setPalette(palette5);
-        label_23->setFont(font1);
-        label_23->setAutoFillBackground(true);
-        label_23->setTextFormat(Qt::RichText);
-        label_23->setAlignment(Qt::AlignCenter);
+        label_53->setPalette(palette5);
+        label_53->setFont(font1);
+        label_53->setAutoFillBackground(true);
+        label_53->setTextFormat(Qt::RichText);
+        label_53->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_23, 2, 3, 1, 1);
+        gridLayout->addWidget(label_53, 5, 3, 1, 1);
 
-        label_42 = new QLabel(G2048Dialog);
-        label_42->setObjectName(QStringLiteral("label_42"));
-        sizePolicy.setHeightForWidth(label_42->sizePolicy().hasHeightForWidth());
-        label_42->setSizePolicy(sizePolicy);
+        label_25 = new QLabel(widget);
+        label_25->setObjectName(QStringLiteral("label_25"));
+        sizePolicy.setHeightForWidth(label_25->sizePolicy().hasHeightForWidth());
+        label_25->setSizePolicy(sizePolicy);
         QPalette palette6;
         palette6.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette6.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -519,18 +517,18 @@ public:
         palette6.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette6.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette6.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_42->setPalette(palette6);
-        label_42->setFont(font1);
-        label_42->setAutoFillBackground(true);
-        label_42->setTextFormat(Qt::RichText);
-        label_42->setAlignment(Qt::AlignCenter);
+        label_25->setPalette(palette6);
+        label_25->setFont(font1);
+        label_25->setAutoFillBackground(true);
+        label_25->setTextFormat(Qt::RichText);
+        label_25->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_42, 4, 2, 1, 1);
+        gridLayout->addWidget(label_25, 2, 5, 1, 1);
 
-        label_43 = new QLabel(G2048Dialog);
-        label_43->setObjectName(QStringLiteral("label_43"));
-        sizePolicy.setHeightForWidth(label_43->sizePolicy().hasHeightForWidth());
-        label_43->setSizePolicy(sizePolicy);
+        label_42 = new QLabel(widget);
+        label_42->setObjectName(QStringLiteral("label_42"));
+        sizePolicy.setHeightForWidth(label_42->sizePolicy().hasHeightForWidth());
+        label_42->setSizePolicy(sizePolicy);
         QPalette palette7;
         palette7.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette7.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -577,18 +575,18 @@ public:
         palette7.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette7.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette7.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_43->setPalette(palette7);
-        label_43->setFont(font1);
-        label_43->setAutoFillBackground(true);
-        label_43->setTextFormat(Qt::RichText);
-        label_43->setAlignment(Qt::AlignCenter);
+        label_42->setPalette(palette7);
+        label_42->setFont(font1);
+        label_42->setAutoFillBackground(true);
+        label_42->setTextFormat(Qt::RichText);
+        label_42->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_43, 4, 3, 1, 1);
+        gridLayout->addWidget(label_42, 4, 2, 1, 1);
 
-        label_44 = new QLabel(G2048Dialog);
-        label_44->setObjectName(QStringLiteral("label_44"));
-        sizePolicy.setHeightForWidth(label_44->sizePolicy().hasHeightForWidth());
-        label_44->setSizePolicy(sizePolicy);
+        label_23 = new QLabel(widget);
+        label_23->setObjectName(QStringLiteral("label_23"));
+        sizePolicy.setHeightForWidth(label_23->sizePolicy().hasHeightForWidth());
+        label_23->setSizePolicy(sizePolicy);
         QPalette palette8;
         palette8.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette8.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -635,18 +633,18 @@ public:
         palette8.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette8.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette8.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_44->setPalette(palette8);
-        label_44->setFont(font1);
-        label_44->setAutoFillBackground(true);
-        label_44->setTextFormat(Qt::RichText);
-        label_44->setAlignment(Qt::AlignCenter);
+        label_23->setPalette(palette8);
+        label_23->setFont(font1);
+        label_23->setAutoFillBackground(true);
+        label_23->setTextFormat(Qt::RichText);
+        label_23->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_44, 4, 4, 1, 1);
+        gridLayout->addWidget(label_23, 2, 3, 1, 1);
 
-        label_21 = new QLabel(G2048Dialog);
-        label_21->setObjectName(QStringLiteral("label_21"));
-        sizePolicy.setHeightForWidth(label_21->sizePolicy().hasHeightForWidth());
-        label_21->setSizePolicy(sizePolicy);
+        label_43 = new QLabel(widget);
+        label_43->setObjectName(QStringLiteral("label_43"));
+        sizePolicy.setHeightForWidth(label_43->sizePolicy().hasHeightForWidth());
+        label_43->setSizePolicy(sizePolicy);
         QPalette palette9;
         palette9.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette9.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -693,18 +691,18 @@ public:
         palette9.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette9.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette9.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_21->setPalette(palette9);
-        label_21->setFont(font1);
-        label_21->setAutoFillBackground(true);
-        label_21->setTextFormat(Qt::RichText);
-        label_21->setAlignment(Qt::AlignCenter);
+        label_43->setPalette(palette9);
+        label_43->setFont(font1);
+        label_43->setAutoFillBackground(true);
+        label_43->setTextFormat(Qt::RichText);
+        label_43->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_21, 2, 1, 1, 1);
+        gridLayout->addWidget(label_43, 4, 3, 1, 1);
 
-        label_40 = new QLabel(G2048Dialog);
-        label_40->setObjectName(QStringLiteral("label_40"));
-        sizePolicy.setHeightForWidth(label_40->sizePolicy().hasHeightForWidth());
-        label_40->setSizePolicy(sizePolicy);
+        label_44 = new QLabel(widget);
+        label_44->setObjectName(QStringLiteral("label_44"));
+        sizePolicy.setHeightForWidth(label_44->sizePolicy().hasHeightForWidth());
+        label_44->setSizePolicy(sizePolicy);
         QPalette palette10;
         palette10.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette10.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -751,18 +749,18 @@ public:
         palette10.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette10.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette10.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_40->setPalette(palette10);
-        label_40->setFont(font1);
-        label_40->setAutoFillBackground(true);
-        label_40->setTextFormat(Qt::RichText);
-        label_40->setAlignment(Qt::AlignCenter);
+        label_44->setPalette(palette10);
+        label_44->setFont(font1);
+        label_44->setAutoFillBackground(true);
+        label_44->setTextFormat(Qt::RichText);
+        label_44->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_40, 4, 0, 1, 1);
+        gridLayout->addWidget(label_44, 4, 4, 1, 1);
 
-        label_54 = new QLabel(G2048Dialog);
-        label_54->setObjectName(QStringLiteral("label_54"));
-        sizePolicy.setHeightForWidth(label_54->sizePolicy().hasHeightForWidth());
-        label_54->setSizePolicy(sizePolicy);
+        label_21 = new QLabel(widget);
+        label_21->setObjectName(QStringLiteral("label_21"));
+        sizePolicy.setHeightForWidth(label_21->sizePolicy().hasHeightForWidth());
+        label_21->setSizePolicy(sizePolicy);
         QPalette palette11;
         palette11.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette11.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -809,18 +807,18 @@ public:
         palette11.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette11.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette11.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_54->setPalette(palette11);
-        label_54->setFont(font1);
-        label_54->setAutoFillBackground(true);
-        label_54->setTextFormat(Qt::RichText);
-        label_54->setAlignment(Qt::AlignCenter);
+        label_21->setPalette(palette11);
+        label_21->setFont(font1);
+        label_21->setAutoFillBackground(true);
+        label_21->setTextFormat(Qt::RichText);
+        label_21->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_54, 5, 4, 1, 1);
+        gridLayout->addWidget(label_21, 2, 1, 1, 1);
 
-        label_52 = new QLabel(G2048Dialog);
-        label_52->setObjectName(QStringLiteral("label_52"));
-        sizePolicy.setHeightForWidth(label_52->sizePolicy().hasHeightForWidth());
-        label_52->setSizePolicy(sizePolicy);
+        label_40 = new QLabel(widget);
+        label_40->setObjectName(QStringLiteral("label_40"));
+        sizePolicy.setHeightForWidth(label_40->sizePolicy().hasHeightForWidth());
+        label_40->setSizePolicy(sizePolicy);
         QPalette palette12;
         palette12.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette12.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -867,18 +865,18 @@ public:
         palette12.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette12.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette12.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_52->setPalette(palette12);
-        label_52->setFont(font1);
-        label_52->setAutoFillBackground(true);
-        label_52->setTextFormat(Qt::RichText);
-        label_52->setAlignment(Qt::AlignCenter);
+        label_40->setPalette(palette12);
+        label_40->setFont(font1);
+        label_40->setAutoFillBackground(true);
+        label_40->setTextFormat(Qt::RichText);
+        label_40->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_52, 5, 2, 1, 1);
+        gridLayout->addWidget(label_40, 4, 0, 1, 1);
 
-        label_51 = new QLabel(G2048Dialog);
-        label_51->setObjectName(QStringLiteral("label_51"));
-        sizePolicy.setHeightForWidth(label_51->sizePolicy().hasHeightForWidth());
-        label_51->setSizePolicy(sizePolicy);
+        label_54 = new QLabel(widget);
+        label_54->setObjectName(QStringLiteral("label_54"));
+        sizePolicy.setHeightForWidth(label_54->sizePolicy().hasHeightForWidth());
+        label_54->setSizePolicy(sizePolicy);
         QPalette palette13;
         palette13.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette13.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -925,18 +923,18 @@ public:
         palette13.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette13.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette13.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_51->setPalette(palette13);
-        label_51->setFont(font1);
-        label_51->setAutoFillBackground(true);
-        label_51->setTextFormat(Qt::RichText);
-        label_51->setAlignment(Qt::AlignCenter);
+        label_54->setPalette(palette13);
+        label_54->setFont(font1);
+        label_54->setAutoFillBackground(true);
+        label_54->setTextFormat(Qt::RichText);
+        label_54->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_51, 5, 1, 1, 1);
+        gridLayout->addWidget(label_54, 5, 4, 1, 1);
 
-        label_45 = new QLabel(G2048Dialog);
-        label_45->setObjectName(QStringLiteral("label_45"));
-        sizePolicy.setHeightForWidth(label_45->sizePolicy().hasHeightForWidth());
-        label_45->setSizePolicy(sizePolicy);
+        label_51 = new QLabel(widget);
+        label_51->setObjectName(QStringLiteral("label_51"));
+        sizePolicy.setHeightForWidth(label_51->sizePolicy().hasHeightForWidth());
+        label_51->setSizePolicy(sizePolicy);
         QPalette palette14;
         palette14.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette14.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -983,15 +981,15 @@ public:
         palette14.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette14.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette14.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_45->setPalette(palette14);
-        label_45->setFont(font1);
-        label_45->setAutoFillBackground(true);
-        label_45->setTextFormat(Qt::RichText);
-        label_45->setAlignment(Qt::AlignCenter);
+        label_51->setPalette(palette14);
+        label_51->setFont(font1);
+        label_51->setAutoFillBackground(true);
+        label_51->setTextFormat(Qt::RichText);
+        label_51->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_45, 4, 5, 1, 1);
+        gridLayout->addWidget(label_51, 5, 1, 1, 1);
 
-        label_50 = new QLabel(G2048Dialog);
+        label_50 = new QLabel(widget);
         label_50->setObjectName(QStringLiteral("label_50"));
         sizePolicy.setHeightForWidth(label_50->sizePolicy().hasHeightForWidth());
         label_50->setSizePolicy(sizePolicy);
@@ -1049,10 +1047,10 @@ public:
 
         gridLayout->addWidget(label_50, 5, 0, 1, 1);
 
-        label_34 = new QLabel(G2048Dialog);
-        label_34->setObjectName(QStringLiteral("label_34"));
-        sizePolicy.setHeightForWidth(label_34->sizePolicy().hasHeightForWidth());
-        label_34->setSizePolicy(sizePolicy);
+        label_45 = new QLabel(widget);
+        label_45->setObjectName(QStringLiteral("label_45"));
+        sizePolicy.setHeightForWidth(label_45->sizePolicy().hasHeightForWidth());
+        label_45->setSizePolicy(sizePolicy);
         QPalette palette16;
         palette16.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette16.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1099,18 +1097,18 @@ public:
         palette16.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette16.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette16.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_34->setPalette(palette16);
-        label_34->setFont(font1);
-        label_34->setAutoFillBackground(true);
-        label_34->setTextFormat(Qt::RichText);
-        label_34->setAlignment(Qt::AlignCenter);
+        label_45->setPalette(palette16);
+        label_45->setFont(font1);
+        label_45->setAutoFillBackground(true);
+        label_45->setTextFormat(Qt::RichText);
+        label_45->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_34, 3, 4, 1, 1);
+        gridLayout->addWidget(label_45, 4, 5, 1, 1);
 
-        label_41 = new QLabel(G2048Dialog);
-        label_41->setObjectName(QStringLiteral("label_41"));
-        sizePolicy.setHeightForWidth(label_41->sizePolicy().hasHeightForWidth());
-        label_41->setSizePolicy(sizePolicy);
+        label_52 = new QLabel(widget);
+        label_52->setObjectName(QStringLiteral("label_52"));
+        sizePolicy.setHeightForWidth(label_52->sizePolicy().hasHeightForWidth());
+        label_52->setSizePolicy(sizePolicy);
         QPalette palette17;
         palette17.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette17.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1157,15 +1155,15 @@ public:
         palette17.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette17.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette17.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_41->setPalette(palette17);
-        label_41->setFont(font1);
-        label_41->setAutoFillBackground(true);
-        label_41->setTextFormat(Qt::RichText);
-        label_41->setAlignment(Qt::AlignCenter);
+        label_52->setPalette(palette17);
+        label_52->setFont(font1);
+        label_52->setAutoFillBackground(true);
+        label_52->setTextFormat(Qt::RichText);
+        label_52->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_41, 4, 1, 1, 1);
+        gridLayout->addWidget(label_52, 5, 2, 1, 1);
 
-        label_55 = new QLabel(G2048Dialog);
+        label_55 = new QLabel(widget);
         label_55->setObjectName(QStringLiteral("label_55"));
         sizePolicy.setHeightForWidth(label_55->sizePolicy().hasHeightForWidth());
         label_55->setSizePolicy(sizePolicy);
@@ -1223,10 +1221,10 @@ public:
 
         gridLayout->addWidget(label_55, 5, 5, 1, 1);
 
-        label_35 = new QLabel(G2048Dialog);
-        label_35->setObjectName(QStringLiteral("label_35"));
-        sizePolicy.setHeightForWidth(label_35->sizePolicy().hasHeightForWidth());
-        label_35->setSizePolicy(sizePolicy);
+        label_41 = new QLabel(widget);
+        label_41->setObjectName(QStringLiteral("label_41"));
+        sizePolicy.setHeightForWidth(label_41->sizePolicy().hasHeightForWidth());
+        label_41->setSizePolicy(sizePolicy);
         QPalette palette19;
         palette19.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette19.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1273,18 +1271,18 @@ public:
         palette19.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette19.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette19.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_35->setPalette(palette19);
-        label_35->setFont(font1);
-        label_35->setAutoFillBackground(true);
-        label_35->setTextFormat(Qt::RichText);
-        label_35->setAlignment(Qt::AlignCenter);
+        label_41->setPalette(palette19);
+        label_41->setFont(font1);
+        label_41->setAutoFillBackground(true);
+        label_41->setTextFormat(Qt::RichText);
+        label_41->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_35, 3, 5, 1, 1);
+        gridLayout->addWidget(label_41, 4, 1, 1, 1);
 
-        label_33 = new QLabel(G2048Dialog);
-        label_33->setObjectName(QStringLiteral("label_33"));
-        sizePolicy.setHeightForWidth(label_33->sizePolicy().hasHeightForWidth());
-        label_33->setSizePolicy(sizePolicy);
+        label_34 = new QLabel(widget);
+        label_34->setObjectName(QStringLiteral("label_34"));
+        sizePolicy.setHeightForWidth(label_34->sizePolicy().hasHeightForWidth());
+        label_34->setSizePolicy(sizePolicy);
         QPalette palette20;
         palette20.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette20.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1331,18 +1329,18 @@ public:
         palette20.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette20.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette20.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_33->setPalette(palette20);
-        label_33->setFont(font1);
-        label_33->setAutoFillBackground(true);
-        label_33->setTextFormat(Qt::RichText);
-        label_33->setAlignment(Qt::AlignCenter);
+        label_34->setPalette(palette20);
+        label_34->setFont(font1);
+        label_34->setAutoFillBackground(true);
+        label_34->setTextFormat(Qt::RichText);
+        label_34->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_33, 3, 3, 1, 1);
+        gridLayout->addWidget(label_34, 3, 4, 1, 1);
 
-        label_32 = new QLabel(G2048Dialog);
-        label_32->setObjectName(QStringLiteral("label_32"));
-        sizePolicy.setHeightForWidth(label_32->sizePolicy().hasHeightForWidth());
-        label_32->setSizePolicy(sizePolicy);
+        label_35 = new QLabel(widget);
+        label_35->setObjectName(QStringLiteral("label_35"));
+        sizePolicy.setHeightForWidth(label_35->sizePolicy().hasHeightForWidth());
+        label_35->setSizePolicy(sizePolicy);
         QPalette palette21;
         palette21.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette21.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1389,18 +1387,18 @@ public:
         palette21.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette21.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette21.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_32->setPalette(palette21);
-        label_32->setFont(font1);
-        label_32->setAutoFillBackground(true);
-        label_32->setTextFormat(Qt::RichText);
-        label_32->setAlignment(Qt::AlignCenter);
+        label_35->setPalette(palette21);
+        label_35->setFont(font1);
+        label_35->setAutoFillBackground(true);
+        label_35->setTextFormat(Qt::RichText);
+        label_35->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_32, 3, 2, 1, 1);
+        gridLayout->addWidget(label_35, 3, 5, 1, 1);
 
-        label_31 = new QLabel(G2048Dialog);
-        label_31->setObjectName(QStringLiteral("label_31"));
-        sizePolicy.setHeightForWidth(label_31->sizePolicy().hasHeightForWidth());
-        label_31->setSizePolicy(sizePolicy);
+        label_32 = new QLabel(widget);
+        label_32->setObjectName(QStringLiteral("label_32"));
+        sizePolicy.setHeightForWidth(label_32->sizePolicy().hasHeightForWidth());
+        label_32->setSizePolicy(sizePolicy);
         QPalette palette22;
         palette22.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette22.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1447,18 +1445,18 @@ public:
         palette22.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette22.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette22.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_31->setPalette(palette22);
-        label_31->setFont(font1);
-        label_31->setAutoFillBackground(true);
-        label_31->setTextFormat(Qt::RichText);
-        label_31->setAlignment(Qt::AlignCenter);
+        label_32->setPalette(palette22);
+        label_32->setFont(font1);
+        label_32->setAutoFillBackground(true);
+        label_32->setTextFormat(Qt::RichText);
+        label_32->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_31, 3, 1, 1, 1);
+        gridLayout->addWidget(label_32, 3, 2, 1, 1);
 
-        label_01 = new QLabel(G2048Dialog);
-        label_01->setObjectName(QStringLiteral("label_01"));
-        sizePolicy.setHeightForWidth(label_01->sizePolicy().hasHeightForWidth());
-        label_01->setSizePolicy(sizePolicy);
+        label_31 = new QLabel(widget);
+        label_31->setObjectName(QStringLiteral("label_31"));
+        sizePolicy.setHeightForWidth(label_31->sizePolicy().hasHeightForWidth());
+        label_31->setSizePolicy(sizePolicy);
         QPalette palette23;
         palette23.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette23.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1505,18 +1503,18 @@ public:
         palette23.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette23.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette23.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_01->setPalette(palette23);
-        label_01->setFont(font1);
-        label_01->setAutoFillBackground(true);
-        label_01->setTextFormat(Qt::RichText);
-        label_01->setAlignment(Qt::AlignCenter);
+        label_31->setPalette(palette23);
+        label_31->setFont(font1);
+        label_31->setAutoFillBackground(true);
+        label_31->setTextFormat(Qt::RichText);
+        label_31->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_01, 0, 1, 1, 1);
+        gridLayout->addWidget(label_31, 3, 1, 1, 1);
 
-        label_02 = new QLabel(G2048Dialog);
-        label_02->setObjectName(QStringLiteral("label_02"));
-        sizePolicy.setHeightForWidth(label_02->sizePolicy().hasHeightForWidth());
-        label_02->setSizePolicy(sizePolicy);
+        label_01 = new QLabel(widget);
+        label_01->setObjectName(QStringLiteral("label_01"));
+        sizePolicy.setHeightForWidth(label_01->sizePolicy().hasHeightForWidth());
+        label_01->setSizePolicy(sizePolicy);
         QPalette palette24;
         palette24.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette24.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1563,18 +1561,18 @@ public:
         palette24.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette24.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette24.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_02->setPalette(palette24);
-        label_02->setFont(font1);
-        label_02->setAutoFillBackground(true);
-        label_02->setTextFormat(Qt::RichText);
-        label_02->setAlignment(Qt::AlignCenter);
+        label_01->setPalette(palette24);
+        label_01->setFont(font1);
+        label_01->setAutoFillBackground(true);
+        label_01->setTextFormat(Qt::RichText);
+        label_01->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_02, 0, 2, 1, 1);
+        gridLayout->addWidget(label_01, 0, 1, 1, 1);
 
-        label_03 = new QLabel(G2048Dialog);
-        label_03->setObjectName(QStringLiteral("label_03"));
-        sizePolicy.setHeightForWidth(label_03->sizePolicy().hasHeightForWidth());
-        label_03->setSizePolicy(sizePolicy);
+        label_33 = new QLabel(widget);
+        label_33->setObjectName(QStringLiteral("label_33"));
+        sizePolicy.setHeightForWidth(label_33->sizePolicy().hasHeightForWidth());
+        label_33->setSizePolicy(sizePolicy);
         QPalette palette25;
         palette25.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette25.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1621,18 +1619,18 @@ public:
         palette25.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette25.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette25.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_03->setPalette(palette25);
-        label_03->setFont(font1);
-        label_03->setAutoFillBackground(true);
-        label_03->setTextFormat(Qt::RichText);
-        label_03->setAlignment(Qt::AlignCenter);
+        label_33->setPalette(palette25);
+        label_33->setFont(font1);
+        label_33->setAutoFillBackground(true);
+        label_33->setTextFormat(Qt::RichText);
+        label_33->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_03, 0, 3, 1, 1);
+        gridLayout->addWidget(label_33, 3, 3, 1, 1);
 
-        label_04 = new QLabel(G2048Dialog);
-        label_04->setObjectName(QStringLiteral("label_04"));
-        sizePolicy.setHeightForWidth(label_04->sizePolicy().hasHeightForWidth());
-        label_04->setSizePolicy(sizePolicy);
+        label_05 = new QLabel(widget);
+        label_05->setObjectName(QStringLiteral("label_05"));
+        sizePolicy.setHeightForWidth(label_05->sizePolicy().hasHeightForWidth());
+        label_05->setSizePolicy(sizePolicy);
         QPalette palette26;
         palette26.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette26.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1679,18 +1677,18 @@ public:
         palette26.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette26.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette26.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_04->setPalette(palette26);
-        label_04->setFont(font1);
-        label_04->setAutoFillBackground(true);
-        label_04->setTextFormat(Qt::RichText);
-        label_04->setAlignment(Qt::AlignCenter);
+        label_05->setPalette(palette26);
+        label_05->setFont(font1);
+        label_05->setAutoFillBackground(true);
+        label_05->setTextFormat(Qt::RichText);
+        label_05->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_04, 0, 4, 1, 1);
+        gridLayout->addWidget(label_05, 0, 5, 1, 1);
 
-        label_05 = new QLabel(G2048Dialog);
-        label_05->setObjectName(QStringLiteral("label_05"));
-        sizePolicy.setHeightForWidth(label_05->sizePolicy().hasHeightForWidth());
-        label_05->setSizePolicy(sizePolicy);
+        label_04 = new QLabel(widget);
+        label_04->setObjectName(QStringLiteral("label_04"));
+        sizePolicy.setHeightForWidth(label_04->sizePolicy().hasHeightForWidth());
+        label_04->setSizePolicy(sizePolicy);
         QPalette palette27;
         palette27.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette27.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1737,18 +1735,18 @@ public:
         palette27.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette27.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette27.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_05->setPalette(palette27);
-        label_05->setFont(font1);
-        label_05->setAutoFillBackground(true);
-        label_05->setTextFormat(Qt::RichText);
-        label_05->setAlignment(Qt::AlignCenter);
+        label_04->setPalette(palette27);
+        label_04->setFont(font1);
+        label_04->setAutoFillBackground(true);
+        label_04->setTextFormat(Qt::RichText);
+        label_04->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_05, 0, 5, 1, 1);
+        gridLayout->addWidget(label_04, 0, 4, 1, 1);
 
-        label_10 = new QLabel(G2048Dialog);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        sizePolicy.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
-        label_10->setSizePolicy(sizePolicy);
+        label_03 = new QLabel(widget);
+        label_03->setObjectName(QStringLiteral("label_03"));
+        sizePolicy.setHeightForWidth(label_03->sizePolicy().hasHeightForWidth());
+        label_03->setSizePolicy(sizePolicy);
         QPalette palette28;
         palette28.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette28.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1795,18 +1793,18 @@ public:
         palette28.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette28.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette28.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_10->setPalette(palette28);
-        label_10->setFont(font1);
-        label_10->setAutoFillBackground(true);
-        label_10->setTextFormat(Qt::RichText);
-        label_10->setAlignment(Qt::AlignCenter);
+        label_03->setPalette(palette28);
+        label_03->setFont(font1);
+        label_03->setAutoFillBackground(true);
+        label_03->setTextFormat(Qt::RichText);
+        label_03->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_10, 1, 0, 1, 1);
+        gridLayout->addWidget(label_03, 0, 3, 1, 1);
 
-        label_11 = new QLabel(G2048Dialog);
-        label_11->setObjectName(QStringLiteral("label_11"));
-        sizePolicy.setHeightForWidth(label_11->sizePolicy().hasHeightForWidth());
-        label_11->setSizePolicy(sizePolicy);
+        label_02 = new QLabel(widget);
+        label_02->setObjectName(QStringLiteral("label_02"));
+        sizePolicy.setHeightForWidth(label_02->sizePolicy().hasHeightForWidth());
+        label_02->setSizePolicy(sizePolicy);
         QPalette palette29;
         palette29.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette29.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1853,18 +1851,18 @@ public:
         palette29.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette29.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette29.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_11->setPalette(palette29);
-        label_11->setFont(font1);
-        label_11->setAutoFillBackground(true);
-        label_11->setTextFormat(Qt::RichText);
-        label_11->setAlignment(Qt::AlignCenter);
+        label_02->setPalette(palette29);
+        label_02->setFont(font1);
+        label_02->setAutoFillBackground(true);
+        label_02->setTextFormat(Qt::RichText);
+        label_02->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_11, 1, 1, 1, 1);
+        gridLayout->addWidget(label_02, 0, 2, 1, 1);
 
-        label_12 = new QLabel(G2048Dialog);
-        label_12->setObjectName(QStringLiteral("label_12"));
-        sizePolicy.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
-        label_12->setSizePolicy(sizePolicy);
+        label_13 = new QLabel(widget);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        sizePolicy.setHeightForWidth(label_13->sizePolicy().hasHeightForWidth());
+        label_13->setSizePolicy(sizePolicy);
         QPalette palette30;
         palette30.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette30.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1911,18 +1909,18 @@ public:
         palette30.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette30.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette30.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_12->setPalette(palette30);
-        label_12->setFont(font1);
-        label_12->setAutoFillBackground(true);
-        label_12->setTextFormat(Qt::RichText);
-        label_12->setAlignment(Qt::AlignCenter);
+        label_13->setPalette(palette30);
+        label_13->setFont(font1);
+        label_13->setAutoFillBackground(true);
+        label_13->setTextFormat(Qt::RichText);
+        label_13->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_12, 1, 2, 1, 1);
+        gridLayout->addWidget(label_13, 1, 3, 1, 1);
 
-        label_13 = new QLabel(G2048Dialog);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        sizePolicy.setHeightForWidth(label_13->sizePolicy().hasHeightForWidth());
-        label_13->setSizePolicy(sizePolicy);
+        label_14 = new QLabel(widget);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        sizePolicy.setHeightForWidth(label_14->sizePolicy().hasHeightForWidth());
+        label_14->setSizePolicy(sizePolicy);
         QPalette palette31;
         palette31.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette31.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -1969,18 +1967,18 @@ public:
         palette31.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette31.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette31.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_13->setPalette(palette31);
-        label_13->setFont(font1);
-        label_13->setAutoFillBackground(true);
-        label_13->setTextFormat(Qt::RichText);
-        label_13->setAlignment(Qt::AlignCenter);
+        label_14->setPalette(palette31);
+        label_14->setFont(font1);
+        label_14->setAutoFillBackground(true);
+        label_14->setTextFormat(Qt::RichText);
+        label_14->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_13, 1, 3, 1, 1);
+        gridLayout->addWidget(label_14, 1, 4, 1, 1);
 
-        label_14 = new QLabel(G2048Dialog);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        sizePolicy.setHeightForWidth(label_14->sizePolicy().hasHeightForWidth());
-        label_14->setSizePolicy(sizePolicy);
+        label_15 = new QLabel(widget);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        sizePolicy.setHeightForWidth(label_15->sizePolicy().hasHeightForWidth());
+        label_15->setSizePolicy(sizePolicy);
         QPalette palette32;
         palette32.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette32.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -2027,18 +2025,18 @@ public:
         palette32.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette32.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette32.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_14->setPalette(palette32);
-        label_14->setFont(font1);
-        label_14->setAutoFillBackground(true);
-        label_14->setTextFormat(Qt::RichText);
-        label_14->setAlignment(Qt::AlignCenter);
+        label_15->setPalette(palette32);
+        label_15->setFont(font1);
+        label_15->setAutoFillBackground(true);
+        label_15->setTextFormat(Qt::RichText);
+        label_15->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_14, 1, 4, 1, 1);
+        gridLayout->addWidget(label_15, 1, 5, 1, 1);
 
-        label_15 = new QLabel(G2048Dialog);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        sizePolicy.setHeightForWidth(label_15->sizePolicy().hasHeightForWidth());
-        label_15->setSizePolicy(sizePolicy);
+        label_12 = new QLabel(widget);
+        label_12->setObjectName(QStringLiteral("label_12"));
+        sizePolicy.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
+        label_12->setSizePolicy(sizePolicy);
         QPalette palette33;
         palette33.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette33.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -2085,18 +2083,18 @@ public:
         palette33.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette33.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette33.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_15->setPalette(palette33);
-        label_15->setFont(font1);
-        label_15->setAutoFillBackground(true);
-        label_15->setTextFormat(Qt::RichText);
-        label_15->setAlignment(Qt::AlignCenter);
+        label_12->setPalette(palette33);
+        label_12->setFont(font1);
+        label_12->setAutoFillBackground(true);
+        label_12->setTextFormat(Qt::RichText);
+        label_12->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_15, 1, 5, 1, 1);
+        gridLayout->addWidget(label_12, 1, 2, 1, 1);
 
-        label_20 = new QLabel(G2048Dialog);
-        label_20->setObjectName(QStringLiteral("label_20"));
-        sizePolicy.setHeightForWidth(label_20->sizePolicy().hasHeightForWidth());
-        label_20->setSizePolicy(sizePolicy);
+        label_00 = new QLabel(widget);
+        label_00->setObjectName(QStringLiteral("label_00"));
+        sizePolicy.setHeightForWidth(label_00->sizePolicy().hasHeightForWidth());
+        label_00->setSizePolicy(sizePolicy);
         QPalette palette34;
         palette34.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette34.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -2143,15 +2141,15 @@ public:
         palette34.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette34.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette34.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_20->setPalette(palette34);
-        label_20->setFont(font1);
-        label_20->setAutoFillBackground(true);
-        label_20->setTextFormat(Qt::RichText);
-        label_20->setAlignment(Qt::AlignCenter);
+        label_00->setPalette(palette34);
+        label_00->setFont(font1);
+        label_00->setAutoFillBackground(true);
+        label_00->setTextFormat(Qt::RichText);
+        label_00->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_20, 2, 0, 1, 1);
+        gridLayout->addWidget(label_00, 0, 0, 1, 1);
 
-        label_22 = new QLabel(G2048Dialog);
+        label_22 = new QLabel(widget);
         label_22->setObjectName(QStringLiteral("label_22"));
         sizePolicy.setHeightForWidth(label_22->sizePolicy().hasHeightForWidth());
         label_22->setSizePolicy(sizePolicy);
@@ -2209,10 +2207,10 @@ public:
 
         gridLayout->addWidget(label_22, 2, 2, 1, 1);
 
-        label_00 = new QLabel(G2048Dialog);
-        label_00->setObjectName(QStringLiteral("label_00"));
-        sizePolicy.setHeightForWidth(label_00->sizePolicy().hasHeightForWidth());
-        label_00->setSizePolicy(sizePolicy);
+        label_20 = new QLabel(widget);
+        label_20->setObjectName(QStringLiteral("label_20"));
+        sizePolicy.setHeightForWidth(label_20->sizePolicy().hasHeightForWidth());
+        label_20->setSizePolicy(sizePolicy);
         QPalette palette36;
         palette36.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette36.setBrush(QPalette::Active, QPalette::Button, brush9);
@@ -2259,58 +2257,41 @@ public:
         palette36.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         palette36.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette36.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        label_00->setPalette(palette36);
-        label_00->setFont(font1);
-        label_00->setAutoFillBackground(true);
-        label_00->setTextFormat(Qt::RichText);
-        label_00->setAlignment(Qt::AlignCenter);
+        label_20->setPalette(palette36);
+        label_20->setFont(font1);
+        label_20->setAutoFillBackground(true);
+        label_20->setTextFormat(Qt::RichText);
+        label_20->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_00, 0, 0, 1, 1);
+        gridLayout->addWidget(label_20, 2, 0, 1, 1);
 
-
-        horizontalLayout->addLayout(gridLayout);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_3);
-
-        label_99 = new QLabel(G2048Dialog);
-        label_99->setObjectName(QStringLiteral("label_99"));
+        scorelabel = new QLabel(G2048Dialog);
+        scorelabel->setObjectName(QStringLiteral("scorelabel"));
+        scorelabel->setGeometry(QRect(540, 108, 111, 41));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(label_99->sizePolicy().hasHeightForWidth());
-        label_99->setSizePolicy(sizePolicy1);
+        sizePolicy1.setHeightForWidth(scorelabel->sizePolicy().hasHeightForWidth());
+        scorelabel->setSizePolicy(sizePolicy1);
         QFont font2;
         font2.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font2.setBold(false);
         font2.setItalic(false);
         font2.setWeight(50);
-        label_99->setFont(font2);
-        label_99->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(label_99);
-
-        scorelabel = new QLabel(G2048Dialog);
-        scorelabel->setObjectName(QStringLiteral("scorelabel"));
-        sizePolicy1.setHeightForWidth(scorelabel->sizePolicy().hasHeightForWidth());
-        scorelabel->setSizePolicy(sizePolicy1);
         scorelabel->setFont(font2);
         scorelabel->setFrameShape(QFrame::Box);
         scorelabel->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(scorelabel);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
+        label_99 = new QLabel(G2048Dialog);
+        label_99->setObjectName(QStringLiteral("label_99"));
+        label_99->setGeometry(QRect(540, 40, 101, 51));
+        sizePolicy1.setHeightForWidth(label_99->sizePolicy().hasHeightForWidth());
+        label_99->setSizePolicy(sizePolicy1);
+        label_99->setFont(font2);
+        label_99->setAlignment(Qt::AlignCenter);
         label_39 = new QLabel(G2048Dialog);
         label_39->setObjectName(QStringLiteral("label_39"));
         label_39->setEnabled(true);
+        label_39->setGeometry(QRect(546, 212, 101, 51));
         sizePolicy1.setHeightForWidth(label_39->sizePolicy().hasHeightForWidth());
         label_39->setSizePolicy(sizePolicy1);
         QPalette palette37;
@@ -2369,20 +2350,14 @@ public:
         label_39->setFrameShape(QFrame::Panel);
         label_39->setFrameShadow(QFrame::Raised);
         label_39->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(label_39);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer);
-
-        startButton = new QPushButton(G2048Dialog);
-        startButton->setObjectName(QStringLiteral("startButton"));
+        exitButton = new QPushButton(G2048Dialog);
+        exitButton->setObjectName(QStringLiteral("exitButton"));
+        exitButton->setGeometry(QRect(550, 420, 91, 51));
         QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Expanding);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(startButton->sizePolicy().hasHeightForWidth());
-        startButton->setSizePolicy(sizePolicy2);
+        sizePolicy2.setHeightForWidth(exitButton->sizePolicy().hasHeightForWidth());
+        exitButton->setSizePolicy(sizePolicy2);
         QPalette palette38;
         palette38.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette38.setBrush(QPalette::Active, QPalette::Button, brush6);
@@ -2429,17 +2404,15 @@ public:
         palette38.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush6);
         palette38.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette38.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        startButton->setPalette(palette38);
-        startButton->setFont(font2);
-        startButton->setFocusPolicy(Qt::ClickFocus);
-        startButton->setAutoFillBackground(true);
-
-        verticalLayout->addWidget(startButton);
-
-        exitButton = new QPushButton(G2048Dialog);
-        exitButton->setObjectName(QStringLiteral("exitButton"));
-        sizePolicy2.setHeightForWidth(exitButton->sizePolicy().hasHeightForWidth());
-        exitButton->setSizePolicy(sizePolicy2);
+        exitButton->setPalette(palette38);
+        exitButton->setFont(font2);
+        exitButton->setFocusPolicy(Qt::ClickFocus);
+        exitButton->setAutoFillBackground(true);
+        startButton = new QPushButton(G2048Dialog);
+        startButton->setObjectName(QStringLiteral("startButton"));
+        startButton->setGeometry(QRect(550, 350, 91, 51));
+        sizePolicy2.setHeightForWidth(startButton->sizePolicy().hasHeightForWidth());
+        startButton->setSizePolicy(sizePolicy2);
         QPalette palette39;
         palette39.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette39.setBrush(QPalette::Active, QPalette::Button, brush6);
@@ -2486,20 +2459,10 @@ public:
         palette39.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush6);
         palette39.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette39.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        exitButton->setPalette(palette39);
-        exitButton->setFont(font2);
-        exitButton->setFocusPolicy(Qt::ClickFocus);
-        exitButton->setAutoFillBackground(true);
-
-        verticalLayout->addWidget(exitButton);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_4);
-
-
-        horizontalLayout->addLayout(verticalLayout);
-
+        startButton->setPalette(palette39);
+        startButton->setFont(font2);
+        startButton->setFocusPolicy(Qt::ClickFocus);
+        startButton->setAutoFillBackground(true);
 
         retranslateUi(G2048Dialog);
 
@@ -2509,47 +2472,48 @@ public:
     void retranslateUi(QDialog *G2048Dialog)
     {
         G2048Dialog->setWindowTitle(QApplication::translate("G2048Dialog", "G2048Dialog", 0));
-        label_30->setText(QString());
+        label_am->setText(QString());
+        label_11->setText(QString());
+        label_10->setText(QString());
         label_24->setText(QString());
+        label_30->setText(QString());
         label_53->setText(QString());
         label_25->setText(QString());
-        label_23->setText(QString());
         label_42->setText(QString());
+        label_23->setText(QString());
         label_43->setText(QString());
         label_44->setText(QString());
         label_21->setText(QString());
         label_40->setText(QString());
         label_54->setText(QString());
-        label_52->setText(QString());
         label_51->setText(QString());
-        label_45->setText(QString());
         label_50->setText(QString());
-        label_34->setText(QString());
-        label_41->setText(QString());
+        label_45->setText(QString());
+        label_52->setText(QString());
         label_55->setText(QString());
+        label_41->setText(QString());
+        label_34->setText(QString());
         label_35->setText(QString());
-        label_33->setText(QString());
         label_32->setText(QString());
         label_31->setText(QString());
         label_01->setText(QString());
-        label_02->setText(QString());
-        label_03->setText(QString());
-        label_04->setText(QString());
+        label_33->setText(QString());
         label_05->setText(QString());
-        label_10->setText(QString());
-        label_11->setText(QString());
-        label_12->setText(QString());
+        label_04->setText(QString());
+        label_03->setText(QString());
+        label_02->setText(QString());
         label_13->setText(QString());
         label_14->setText(QString());
         label_15->setText(QString());
-        label_20->setText(QString());
-        label_22->setText(QString());
+        label_12->setText(QString());
         label_00->setText(QString());
-        label_99->setText(QApplication::translate("G2048Dialog", "\345\210\206\346\225\260", 0));
+        label_22->setText(QString());
+        label_20->setText(QString());
         scorelabel->setText(QApplication::translate("G2048Dialog", "0", 0));
+        label_99->setText(QApplication::translate("G2048Dialog", "\345\210\206\346\225\260", 0));
         label_39->setText(QApplication::translate("G2048Dialog", "6*6", 0));
-        startButton->setText(QApplication::translate("G2048Dialog", "\345\274\200\345\247\213\346\270\270\346\210\217", 0));
         exitButton->setText(QApplication::translate("G2048Dialog", "\347\273\223\346\235\237\346\270\270\346\210\217", 0));
+        startButton->setText(QApplication::translate("G2048Dialog", "\345\274\200\345\247\213\346\270\270\346\210\217", 0));
     } // retranslateUi
 
 };

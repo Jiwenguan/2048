@@ -78,7 +78,7 @@ void G2048Dialog::merge(void)
                if((vector[i][j-1]!=0)&&
                        (vector[i][j]==vector[i][j-1]||
                         vector[i][j]==0)){
-                   //moveOnce(vector[i][j-1],vector[i][j]);
+                   moveOnce(plabel[i][j-1],plabel[i][j]);
                    vector[i][j]+=vector[i][j-1];
                    vector[i][j-1]=0;
                    display();
@@ -93,7 +93,7 @@ void G2048Dialog::merge(void)
                if((vector[i][j+1]!=0)&&
                        (vector[i][j]==vector[i][j+1]||
                         vector[i][j]==0)){
-                   //moveOnce(vector[i][j+1],vector[i][j]);
+                   moveOnce(plabel[i][j+1],plabel[i][j]);
                    vector[i][j]+=vector[i][j+1];
                    vector[i][j+1]=0;
                    display();
@@ -108,7 +108,7 @@ void G2048Dialog::merge(void)
                if((vector[i+1][j]!=0)&&
                        (vector[i][j]==vector[i+1][j]||
                         vector[i][j]==0)){
-                   //move(vector[i][j-1],vector[i][j]);
+                   moveOnce(plabel[i+1][j],plabel[i][j]);
                    vector[i][j]+=vector[i+1][j];
                    vector[i+1][j]=0;
                    display();
@@ -123,7 +123,7 @@ void G2048Dialog::merge(void)
                if((vector[i-1][j]!=0)&&
                        (vector[i][j]==vector[i-1][j]||
                         vector[i][j]==0)){
-                   //moveOnce(vector[i][j-1],vector[i][j]);
+                   moveOnce(plabel[i-1][j],plabel[i][j]);
                    vector[i][j]+=vector[i-1][j];
                    vector[i-1][j]=0;
                    display();
@@ -136,13 +136,17 @@ void G2048Dialog::merge(void)
     return ;
 }
 //移动一个label到另一个label处
-void moveOnce(QLabel* msrc,QLabel* mdes)
+void G2048Dialog::moveOnce(QLabel* msrc,QLabel* mdes)
 {
     qDebug()<<"moveOnce()";
-    //msrc移动到mdes的位置
-    msrc->move(mdes->pos());
+    //调用多线程msrc移动到mdes的位置
+    WorkerThread *threadA=new WorkerThread;
+    threadA->p_src=msrc;
+    threadA->p_des=mdes;
+    threadA->myWidget.setParent(this);
+    threadA->start();
+    //考虑在哪个地方加terminate和wait
 }
-
 bool G2048Dialog::isFull(void){//判断位置是否为满
     qDebug()<<"isFull()";
     for(int i=0;i<6;i++){
