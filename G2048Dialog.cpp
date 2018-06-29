@@ -26,7 +26,7 @@ G2048Dialog::G2048Dialog(QWidget *parent) :
 //        for(int j=0;j<6;j++){
 //           qDebug()<<vector[i][j];
 //        }
-//    }
+//    }    
 }
 G2048Dialog::~G2048Dialog()
 {
