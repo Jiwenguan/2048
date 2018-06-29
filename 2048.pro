@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += G2048Dialog.h
 
 FORMS    += G2048Dialog.ui
+
+RESOURCES += \
+    background.qrc
