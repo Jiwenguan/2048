@@ -80,7 +80,6 @@ void G2048Dialog::merge(void)
                         vector[i][j]==0)){
                    //moveOnce(vector[i][j-1],vector[i][j]);
                    vector[i][j]+=vector[i][j-1];
-                   score+=vector[i][j-1];
                    vector[i][j-1]=0;
                    display();
                }
@@ -96,7 +95,6 @@ void G2048Dialog::merge(void)
                         vector[i][j]==0)){
                    //moveOnce(vector[i][j+1],vector[i][j]);
                    vector[i][j]+=vector[i][j+1];
-                   score+=vector[i][j+1];
                    vector[i][j+1]=0;
                    display();
                }
@@ -112,7 +110,6 @@ void G2048Dialog::merge(void)
                         vector[i][j]==0)){
                    //move(vector[i][j-1],vector[i][j]);
                    vector[i][j]+=vector[i+1][j];
-                   score+=vector[i+1][j];
                    vector[i+1][j]=0;
                    display();
                }
@@ -128,7 +125,6 @@ void G2048Dialog::merge(void)
                         vector[i][j]==0)){
                    //moveOnce(vector[i][j-1],vector[i][j]);
                    vector[i][j]+=vector[i-1][j];
-                   score+=vector[i-1][j];
                    vector[i-1][j]=0;
                    display();
                }
@@ -181,6 +177,7 @@ void G2048Dialog::produce(void){//生产数字2的点
 void G2048Dialog::on_startButton_clicked()
 {
     qDebug()<<"startButton_clicked";
+    score=0;
     //vector空间置0
     for(int i=0;i<6;i++){
         vector[i].fill(0,6);
@@ -206,16 +203,22 @@ void G2048Dialog::on_exitButton_clicked()
 }
 //用于在界面上显示数字的函数
 void G2048Dialog::display(){
-     ui->scorelabel->setNum(score);
+    score=0;
+    for(int i=0;i<6;i++){//
+         for(int j=0;j<6;j++){
+             score+=vector[i][j];
+         }
+    }
+    ui->scorelabel->setNum(score);
     qDebug()<<"display()...";
     //不同的数字按照不同的颜色显示出来。
-    QString str=QString("#492020");
+    //QString str=QString("red");
     //vector[0][0]=0;
     for(int i=0;i<6;i++){
         for(int j=0;j<6;j++){
             plabel[i][j]->setText(vector[i][j]?
                       QString("<h1 style = 'color:%1'>%2</h1>"
-                      ).arg(str).arg(vector[i][j]):"");
+                      ).arg(pcolor(vector[i][j])).arg(vector[i][j]):"");
 
          }
     }
@@ -344,42 +347,42 @@ void G2048Dialog::match(){
     pl.clear();
 }
 
-/*
 QString G2048Dialog::pcolor(int number){
     qDebug()<<"pcolor";
+    QString str;
     switch(number){
-    case 0:
-           break;
     case 2:
-           QString str=QString("#492020");break;
+        str=QString("#EE9A00");break;
     case 4:
-           break;
+        str=QString("#EE8262");break;
     case 8:
-           break;
+        str=QString("#FF8C69");break;
     case 16:
-           break;
+        str=QString("#FF8247");break;
     case 32:
-           break;
+        str=QString("#FF7256");break;
     case 64:
-           break;
+        str=QString("#FF6347");break;
     case 128:
-           break;
+        str=QString("#FF34B3");break;
     case 256:
-           break;
+         str=QString("#FF0000");break;
     case 512:
-           break;
+        str=QString("#8B4513");break;
     case 1024:
-           break;
+        str=QString("#8B3626");break;
     case 2048:
-           break;
+        str=QString("#492020");break;
     case 4096:
-           break;
+        str=QString("#8B0A50");break;
     case 8192:
-           break;
+        str=QString("##87CEEB");break;
     case 16384:
-           break;
+        str=QString("#492020");break;
+
     }
-}*/
+    return str;
+}
 
 
 
