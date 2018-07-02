@@ -6,27 +6,26 @@ G2048Dialog::G2048Dialog(QWidget *parent) :
     ui(new Ui::G2048Dialog)
 {
     ui->setupUi(this);
-    qsrand(QTime::currentTime().msecsSinceStartOfDay());
+    //将数组和label匹配
+    match();
+    //方向数组赋初值
     direct[0]=0;direct[1]=0;
+    //int数组赋初值
     vector.resize(6);
     for(int i=0;i<6;i++){
         vector[i].resize(6);
         vector[i].fill(0,6);
     }
+    //画背景图
     QPainter painter(this);
     QImage image("./background.PNG");
     QRect rect(1,1,441+81,454+81);
     painter.drawImage(QPoint(1,1),image);
 
-    match();
+
     score=0;
     display();
     this->grabKeyboard();
-//    for(int i=0;i<6;i++){
-//        for(int j=0;j<6;j++){
-//           qDebug()<<vector[i][j];
-//        }
-//    }
 }
 G2048Dialog::~G2048Dialog()
 {
@@ -52,33 +51,18 @@ void G2048Dialog::keyPressEvent(QKeyEvent *event){
     merge();
 
     produce();
-    produce();
+    if(!isFull())produce();
 }
 //用于合并数字及移动图像的函数
 void G2048Dialog::merge(void)
 {
     qDebug()<<"merge()";
-//    for(int i=0;i<6;i++){//横向向右
-//            for(int j=5;j>0;j--){//不需判断越界比较，就比较五次即可
-//               //两者相同且不为0则moveOnce
-//               if((vector[i][j-1]!=0)&&
-//                       (vector[i][j]==vector[i][j-1]||
-//                        vector[i][j]==0)){
-//                   //moveOnce(vector[i][j-1],vector[i][j]);
-//                   vector[i][j]+=vector[i][j-1];
-//                   vector[i][j-1]=0;
-//                   display();
-//               }
-//            }
-//    }
     if(direct[0]==0&&direct[1]==+1){//right
     for(int i=0;i<6;i++){//
             for(int j=5;j>0;j--){//不需判断越界比较，就比较五次即可
-               //两者相同且不为0则moveOnce
                if((vector[i][j-1]!=0)&&
                        (vector[i][j]==vector[i][j-1]||
                         vector[i][j]==0)){
-                   moveOnce(plabel[i][j-1],plabel[i][j]);
                    vector[i][j]+=vector[i][j-1];
                    vector[i][j-1]=0;
                    display();
@@ -93,7 +77,6 @@ void G2048Dialog::merge(void)
                if((vector[i][j+1]!=0)&&
                        (vector[i][j]==vector[i][j+1]||
                         vector[i][j]==0)){
-                   moveOnce(plabel[i][j+1],plabel[i][j]);
                    vector[i][j]+=vector[i][j+1];
                    vector[i][j+1]=0;
                    display();
@@ -108,7 +91,6 @@ void G2048Dialog::merge(void)
                if((vector[i+1][j]!=0)&&
                        (vector[i][j]==vector[i+1][j]||
                         vector[i][j]==0)){
-                   moveOnce(plabel[i+1][j],plabel[i][j]);
                    vector[i][j]+=vector[i+1][j];
                    vector[i+1][j]=0;
                    display();
@@ -123,7 +105,6 @@ void G2048Dialog::merge(void)
                if((vector[i-1][j]!=0)&&
                        (vector[i][j]==vector[i-1][j]||
                         vector[i][j]==0)){
-                   moveOnce(plabel[i-1][j],plabel[i][j]);
                    vector[i][j]+=vector[i-1][j];
                    vector[i-1][j]=0;
                    display();
@@ -131,10 +112,11 @@ void G2048Dialog::merge(void)
             }
         }
     }
-    if(isNeedMerge())//递归调用merge
+    if(isNeedMerge(direct[0],direct[1]))//递归调用merge
        merge();
     return ;
 }
+#if 0
 //移动一个label到另一个label处
 void G2048Dialog::moveOnce(QLabel* msrc,QLabel* mdes)
 {
@@ -147,6 +129,7 @@ void G2048Dialog::moveOnce(QLabel* msrc,QLabel* mdes)
     threadA->start();
     //考虑在哪个地方加terminate和wait
 }
+#endif
 bool G2048Dialog::isFull(void){//判断位置是否为满
     qDebug()<<"isFull()";
     for(int i=0;i<6;i++){
@@ -166,10 +149,11 @@ void G2048Dialog::produce(void){//生产数字2的点
             qDebug()<<"produce()";
             vector[a][b]=2;
             display();
-            return ;
-        }
-        produce();
-    }else{
+        }else
+            produce();
+    }else if(isNeedMerge(1,0)||isNeedMerge(-1,0)||isNeedMerge(0,1)||isNeedMerge(0,-1)){}
+    else{
+
         QMessageBox msg(QMessageBox::Information,
                         QString("full"),QString("已经满啦"),
                         QMessageBox::Ok,this);
@@ -193,15 +177,14 @@ void G2048Dialog::on_startButton_clicked()
 void G2048Dialog::on_exitButton_clicked()
 {
     qDebug()<<"exitButton_clicked";
-    isStarted=false;
     //释放vector空间
     for(int i=0;i<6;i++){
         vector[i].clear();
     }
     vector.clear();
     QMessageBox msg(QMessageBox::Information,
-                    QString("close"),QString("您的分数为%1").arg(score),
-                    QMessageBox::Ok,this);
+          QString("close"),QString("您的分数为%1").arg(score),
+          QMessageBox::Ok,this);
     msg.exec();
     this->close();
 }
@@ -216,8 +199,6 @@ void G2048Dialog::display(){
     ui->scorelabel->setNum(score);
     qDebug()<<"display()...";
     //不同的数字按照不同的颜色显示出来。
-    //QString str=QString("red");
-    //vector[0][0]=0;
     for(int i=0;i<6;i++){
         for(int j=0;j<6;j++){
             plabel[i][j]->setText(vector[i][j]?
@@ -228,20 +209,10 @@ void G2048Dialog::display(){
     }
 }
 //判断是否已经需要合并,true代表需要，false代表不需要
-bool G2048Dialog::isNeedMerge(void)
+bool G2048Dialog::isNeedMerge(int dir0, int dir1)
 {
     qDebug()<<"isNeedMerge";
-//    for(int i=0;i<6;i++){//横行
-//        for(int j=5;j>0;j--){//不需判断越界比较，就比较五次即可
-//            //两者相同且不为0则moveOnce
-//            if((vector[i][j-1]!=0)&&
-//                 (vector[i][j]==vector[i][j-1]||
-//                      vector[i][j]==0)){
-//                return true;
-//             }
-//        }
-//    }
-    if(direct[0]==0&&direct[1]==+1){//right
+    if(dir0==0&&dir1==+1){//right
     for(int i=0;i<6;i++){//
             for(int j=5;j>0;j--){//不需判断越界比较，就比较五次即可
                //两者相同且不为0则moveOnce
@@ -253,7 +224,7 @@ bool G2048Dialog::isNeedMerge(void)
             }
         }
     }
-    if(direct[0]==0&&direct[1]==-1){//left
+    if(dir0==0&&dir1==-1){//left
     for(int i=0;i<6;i++){//
             for(int j=0;j<5;j++){//不需判断越界比较，就比较五次即可
                //两者相同且不为0则moveOnce
@@ -265,7 +236,7 @@ bool G2048Dialog::isNeedMerge(void)
             }
         }
     }
-    if(direct[0]==-1&&direct[1]==0){//up
+    if(dir0==-1&&dir1==0){//up
     for(int j=0;j<6;j++){//
             for(int i=0;i<5;i++){//不需判断越界比较，就比较五次即可
                //两者相同且不为0则moveOnce
@@ -277,7 +248,7 @@ bool G2048Dialog::isNeedMerge(void)
             }
         }
     }
-    if(direct[0]==+1&&direct[1]==0){//down
+    if(dir0==+1&&dir1==0){//down
     for(int j=0;j<6;j++){//
             for(int i=5;i>0;i--){//不需判断越界比较，就比较五次即可
                //两者相同且不为0则moveOnce
@@ -370,7 +341,7 @@ QString G2048Dialog::pcolor(int number){
     case 128:
         str=QString("#FF34B3");break;
     case 256:
-         str=QString("#FF0000");break;
+        str=QString("#FF0000");break;
     case 512:
         str=QString("#8B4513");break;
     case 1024:
